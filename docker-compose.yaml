@@ -1,0 +1,20 @@
+version: '3'
+services:
+
+  portainer-ce:
+    image: portainer/portainer-ce
+    container_name: "portianre-ce"
+    restart: always
+    ports:
+      - '9000:9000'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  adminer:
+    image: adminer:4.7.8
+    restart: always
+    container_name: "adminer"
+    ports:
+      - 9001:8080
+    volumes:
+      - ./adminer.css:/var/www/html/adminer.css
